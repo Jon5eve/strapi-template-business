@@ -18,5 +18,5 @@ pipelines:
             - git add .
             - git commit -m $BITBUCKET_COMMIT
             - git branch -M main
-            - git pull -u release main
+            - git pull release main
             - git push -u release main
