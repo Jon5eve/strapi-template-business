@@ -11,12 +11,10 @@ pipelines:
           name: 'Deployment to Production'
           deployment: production
           script:
-            - echo "Your deployment to production script goes here..."
             - rm bitbucket-pipelines.yml
-            - ls -la
             - git remote add release $GIT_REMOTE
             - git config user.email $GIT_EMAIL
             - git config user.name $GIT_USERNAME
             - git add .
             - git commit -m $BITBUCKET_COMMIT
-            - git push release
+            - git push -u release main
