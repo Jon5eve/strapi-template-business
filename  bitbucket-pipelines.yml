@@ -5,17 +5,18 @@
 image: atlassian/default-image:2
 
 pipelines:
-  default:
-    - step:
-        name: 'Deployment to Production'
-        deployment: production
-        script:
-          - echo "Your deployment to production script goes here..."
-          - ls -la
-          - git remote add origin $GIT_REMOTE
-          - git config --global user.email $GIT_EMAIL
-          - git config --global user.name $GIT_USERNAME
-          - git add .
-          - git rm bitbucket-pipelines.yml
-          - git commit -m $BITBUCKET_COMMIT
-          - git push
+  pull-requests:
+    master:
+      - step:
+          name: 'Deployment to Production'
+          deployment: production
+          script:
+            - echo "Your deployment to production script goes here..."
+            - ls -la
+            - git remote add origin $GIT_REMOTE
+            - git config --global user.email $GIT_EMAIL
+            - git config --global user.name $GIT_USERNAME
+            - git add .
+            - git rm bitbucket-pipelines.yml
+            - git commit -m $BITBUCKET_COMMIT
+            - git push
