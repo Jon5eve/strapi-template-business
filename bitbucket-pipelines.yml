@@ -11,7 +11,7 @@ pipelines:
         deployment: production
         script:
           - echo "Your deployment to production script goes here..."
-          - git remote set-url origin $GIT_REMOTE
+          - git remote add origin $GIT_REMOTE
           - git config --global user.email $GIT_EMAIL
           - git config --global user.name $GIT_USERNAME
           - git add .
