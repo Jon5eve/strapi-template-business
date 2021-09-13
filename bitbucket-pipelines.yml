@@ -5,7 +5,7 @@
 image: atlassian/default-image:2
 
 pipelines:
-  pull-requests:
+  branches:
     master:
       - step:
           name: 'Deployment to Production'
@@ -14,7 +14,7 @@ pipelines:
             - echo "Your deployment to production script goes here..."
             - rm bitbucket-pipelines.yml
             - ls -la
-            - git remote set-url release $GIT_REMOTE
+            - git remote add release $GIT_REMOTE
             - git config user.email $GIT_EMAIL
             - git config user.name $GIT_USERNAME
             - git add .
