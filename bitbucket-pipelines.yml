@@ -19,4 +19,4 @@ pipelines:
             - git config user.name $GIT_USERNAME
             - git add .
             - git commit -m $BITBUCKET_COMMIT
-            - git push release main
+            - git push release
